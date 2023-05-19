@@ -35,7 +35,8 @@ public class CommentController {
                         comment.getUser().getName(),
                         comment.getBoard().getId(),
                         comment.getContent(), comment.getHeart(),
-                        comment.getFilePath())));
+                        comment.getFilePath(),
+                        comment.getModifiedDate())));
 
         return new ResponseEntity<>(commentList, HttpStatus.OK);
     }
@@ -69,6 +70,7 @@ public class CommentController {
 
     @DeleteMapping("/{commentId}")
     private ResponseEntity<?> deleteComment(@PathVariable Long commentId){
+        System.out.println(commentId);
         commentService.deleteComment(commentId);
         return ResponseEntity.ok().build();
     }

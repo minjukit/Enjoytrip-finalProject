@@ -24,6 +24,7 @@ public class CommentService {
         Comment comment = new Comment();
         comment.setHeart(0L);
         comment.setBoard(boardService.getBoard(commentFormDTO.getBoardId()));
+        System.out.println(commentFormDTO.getUserId());
         comment.setUser(userService.findOne(commentFormDTO.getUserId()));
         comment.setContent(commentFormDTO.getContent());
         commentRepository.save(comment);
